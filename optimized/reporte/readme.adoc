@@ -1,0 +1,20 @@
+= Reporte de optimizaciones
+:experimental:
+:nofooter:
+:source-highlighter: pygments
+:sectnums:
+:stem: latexmath
+:toc:
+:xrefstyle: short
+
+
+[[serial_optimizations]]
+== Optimizaciones seriales
+
+[%autowidth.stretch,options="header"]
+|===
+|Iter. |Etiqueta |Duración (s) |_Speedup_ |Descripción corta
+|0 |Serial0 |29.45136 |1.00000 |Versión serial inicial (Tarea01)
+|1 |SerialF |18.67995 |1.57663 |Fracción en la fórmula y calcular el `max_change`
+|===
+

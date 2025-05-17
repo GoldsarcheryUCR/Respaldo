@@ -1,0 +1,57 @@
+== Diseño Concurrente Simulación de Calor
+:experimental:
+:nofooter:
+:source-highlighter: pygments
+:sectnums:
+:stem: latexmath
+:toc:
+:xrefstyle: short
+== Componentes
+=== Pseudocódigo
+Ve al link:./serial.pseudo[pthread.pseudo]
+
+=== Diseño struct
+==== Lámina
+Diseño UML para la estructura que representa la lámina, contiene los siguientes datos:
+
+nombre: Nombre del archivo asociado a la lámina (ejemplo: plate001-ciclos).
+
+n_filas: Número de filas de la matriz que representa la lámina.
+
+n_columnas: Número de columnas de la matriz.
+
+matriz: Matriz que representa el estado actual de temperatura de cada celda.
+
+matriz2: Matriz auxiliar para calcular el siguiente estado antes de intercambiar.
+
+epsilon: Umbral mínimo de cambio por celda para considerar que se alcanzó el equilibrio térmico.
+
+distancia: Tamaño físico entre las celdas de la matriz.
+
+tiempo: Duración de cada paso temporal en la simulación.
+
+difusividad: Coeficiente que indica la velocidad de propagación del calor en el material.
+
+iteraciones: Número de pasos realizados hasta alcanzar el equilibrio.
+
+image:./UML_Lamina.svg[]
+
+==== Memoria privada
+Diseño UML para la estructura que representa la memoria privada de cada hilo, contiene la siguiente información.
+
+num_hilo : Número privado de cada hilo que funciona como identificador
+
+mem_comp : Un puntero a la estructura de la memoria compartida que debe ser accesible a todos los hilos
+
+image:./UML.MemoriaPrivada.svg[]
+
+==== Memoria Compartida
+Diseño UML para la estructura que representa la memoria que comparten los hilos, contiene la siguiente información.
+
+filas_internas: Filas de la lámina donde existe cambios de temperatura
+
+hilos_totales: Hilos que realizarán el cambio de temperatura de las celdas hasta el equilibrio térmico
+
+lamina : Un puntero a la estructura que contiene los datos de la lámina
+
+image:./UML.MemoriaCompartida.svg[]

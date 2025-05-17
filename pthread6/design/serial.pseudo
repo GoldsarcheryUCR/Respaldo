@@ -1,0 +1,89 @@
+procedure main(argc, argv[]){
+  //Revisar que los argumentos existen 
+  (argc> 4) 
+  //Guardar los argumentos, del 1 al 4
+  argumento_n = argv[n] 
+  // Declarar lámina
+  Lamina lamina 
+  // Declarar memoria compartida
+  Mem_comp mem_comp
+  // Suponemos que hay alguna lámina que procesar
+  hay_laminas = true 
+  // Hasta que se procesen todas las láminas
+  while hay_laminas{
+    // cargar lámina del archivo binario plate###.bin
+    cargar_lamina(lamina)
+    // aplicar la relación hasta que haya equilibrio
+    procesar_lamina(lamina, mem_comp)
+    // reportar los datos obtenidos
+    reportar_lamina(lamina)
+  }
+}
+  
+cargar_lamina(Lamina lamina)
+
+procesar_lamina(Lamina lamina, Mem_comp mem_comp ){
+  // Suponemos que la lámina no está en equilibrio
+  max_cambio_t = epsilon + 1
+  // Filas que se modifican
+  filas_internas;
+  // Calcular hilos a crear segun la cantidad de filas de la lamina
+  hilos_totales = si (hilos_usuario < filas_internas) 
+    hilos_usuario : filas_internas
+  // Hasta que se equilibre.
+  while max_cambio_t < epsilon { 
+    // Crear hilos para llenar la matriz2 de lamina segun la relación
+  	equipo_hilos = crear_hilos(mem_comp)
+    // ver el cambio_t entre etapas de cada celda, ignorando los bordes
+    for(n_fila){
+      for(n_columna){
+        cambio = matriz[i][j] - matriz2[i][j]
+        //tomar el maximo cambio de la iteracion
+        max
+      }   
+    }
+  // actualizar la matriz actual
+  intercambio(matriz,matriz2)
+  // actualizar max_cambio_t
+  max_cambio_t = max
+  iteraciones++
+  }
+}
+
+calculo_matriz(mem) {
+  // Registros a utilizar 
+  mem_priv = mem;
+  mem_comp = mem_priv.mem_comp
+  lamina = mem_comp.lamina
+  // distribuir las filas que va a realizar cada hilo, revisar si un hilo
+  // debe hacer una fila extra.
+  filas_por_hilo
+  extra
+  // coeficiente de difusión térmica
+  coeficiente
+  // calcular la fila donde inicia y donde termina el hilo.
+  fila_inicio
+  fila_final
+  // calcular la distribución de calor de las filas de este hilo
+  for fila_inicio a fila_final  {
+    for 1 a n_columnas-1  {
+      matriz2[i][j] =  relacion(matriz1)
+    }
+  }
+}
+reportar_lamina(lamina lamina)
+
+crear_hilos(mem_comp){
+  // Memoria privada de cada hilo
+  for(hilos_totales){
+    mem_priv a hilo;
+   }
+  // Hilos ejecutan calculo de temp de filas
+  create_thread(calculo_matriz, mem_priv[num_hilo])
+  // Esperar a que todos los hilos terminen
+  pthread_join(hilos)
+}
+
+
+
+

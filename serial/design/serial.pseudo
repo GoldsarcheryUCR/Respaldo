@@ -1,0 +1,47 @@
+procedure main(argc, argv[]){
+  iniciar_simul(argc, argv[]) 
+}
+iniciar_simul(argc, argv[]){
+  //Analiza y guarda los argumentos, y abre archivo de trabajo y salida.
+  preparar archivos(argc, argv[])
+  // Declarar lámina
+  Lamina lamina; 
+  // Suponemos que hay alguna lámina que procesar
+  hay_laminas = true 
+  // Hasta que se procesen todas las láminas
+  while hay_laminas{
+    // cargar lámina del archivo binario plate###.bin
+    cargar_lamina(lamina)
+    // aplicar la relación hasta que haya equilibrio
+    procesar_lamina(lamina)
+    // reportar los datos obtenidos
+    reportar_lamina(lamina)
+  }
+}
+  
+cargar_lamina(Lamina lamina)
+
+procesar_lamina(lamina lamina){
+  // Suponemos que la lámina no está en equilibrio
+  max_cambio_t := epsilon + 1
+  // Hasta que se equilibre.
+  while max_cambio_t < epsilon { 
+    // llenar la matriz de lamina_2 segun la relación,ignorando bordes
+    for(n_fila){
+      for(n_columna){
+        lamina->matriz2[i][j]= relacion()
+        // ver el cambio_t entre etapas de cada celda
+        cambio = matriz[i][j] - matriz2[i][j]
+        //tomar el maximo cambio de la iteracion
+        max
+      }   
+    }
+  // actualizar la matriz actual
+  intercambio(matriz,matriz2)
+  // actualizar max_cambio_t
+  max_cambio_t = max
+  iteraciones++
+  }
+}
+
+reportar_lamina(lamina lamina)

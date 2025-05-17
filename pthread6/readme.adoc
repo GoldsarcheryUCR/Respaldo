@@ -1,0 +1,98 @@
+= Simulación de calor con Pthreads
+:experimental:
+:nofooter:
+:source-highlighter: pygments
+:sectnums:
+:stem: latexmath
+:toc:
+:xrefstyle: short
+
+
+== Planteamiento del problema
+
+El objetivo es realizar una simulación de calor donde se inyecta calor a una
+lámina de un material determinado. La lámina será representada por celdas  
+cuadradas (T), los bordes de la lámina mantendrán una temperatura constante 
+mientras la temperatura de las celdas interiores cambiarán con el tiempo.
+
+Las celdas tendrán una temperatura inicial y esta se actualiza espacios de
+tiempo,en cada espacio la temperatura cambia seguiendo la relación:
+
+image:relacion.svg[]
+
+La k representa el estado actual de la celda, k+1 el estado siguiente. Mientras 
+que i y j es la posición de la celda. ΔT es la diferiencia de tiempo, α es la
+difusividad térmica que depende del material y h lo que mide un lado de una
+celda. La temperatura que recibe una celda vienen de sus 4 celdas adyacentes,
+y la temperatura que pierde se reparte entre ellas.
+
+Al iniciar iniciar el programa la subrutina main() recibirá por parámetro un
+archivo de trabajo, este datos para la simulación y láminas que deberán ser 
+simuladas. 
+
+Cada lámina sera cargada y se aplicará la relación de temperaturaa cada celda.
+Se compara el cambio que hubo entre la temperatura de las celdas actuales y 
+las celdas en el estado previo para obtener el mayor cambio que hubo en una
+celda. Se aplicarán las iteraciones suficientes hasta que el mayor cambio sea
+menor a ε que es valor indicado previamente.
+
+Cuando esto suceda termina la simulación se genera un reporte con los datos de
+la lámina, el número de iteraciones y tiempo que tardó la simulación.
+ 
+
+Ejemplo entrada:
+
+[source]
+----
+include::test/job1/job001.txt[]
+----
+
+Salida:
+
+[source]
+----
+include::test/job1/job001.out[]
+----
+
+[[Diseño]]
+== Diseño
+
+Ve a link:design/readme.adoc[Design readme]
+
+[[Manual]]
+== Manual
+
+[[Compilar]]
+=== Compilar
+
+Se utiliza el makefile provisto por el Prof.Jeisson Hidalgo Céspedes, con el cual se
+puede compilar con: `make`
+
+`make clean` elimina las carpetas build, bin, y doc en caso de querer compilar
+utilizando herramientas como sanitzers u otro tipo. 
+
+[[Uso]]
+=== Uso
+
+Se requiere invocar al ejecutable con los siguientes argumentos:
+1.Nombre del ejecutable.
+2.Nombre del archivo de trabajo o jobfile. 
+3.Número de hilos con los que desea que el programa use.
+4.Prefijo de ruta.
+
+Un ejemplo sería: `bin/serial job001.txt 3 jobs`
+
+En este caso bin/serial sería el ejecutable, job001.txt es el jobfile, 
+3 es el número de hilos que el usuario pide que use el programa y 
+jobs es el prefijo de ruta de todos los archivos. El numero de hilos que usará
+el programa es igual o menor al numero de filas de las laminas a analizar,
+en caso de ingresar una cantidad mayor no se usarán.
+  
+
+[[credits]]
+== Credits
+Hecho por: Luis Alfredo Arias Gómez <luisalfredo.arias@ucr.ac.cr>
+
+Docente: Jeisson Hidalgo Céspedes
+
+

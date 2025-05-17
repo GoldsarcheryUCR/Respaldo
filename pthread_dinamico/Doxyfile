@@ -1,0 +1,8 @@
+@include = ../../common/Doxyfile
+
+PROJECT_NAME = "Simulación de calor con Pthreads"
+
+PROJECT_NUMBER = 2.0.0
+
+
+

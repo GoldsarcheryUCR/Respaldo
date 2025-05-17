@@ -1,0 +1,24 @@
+== Diseño Concurrente Simulación de Calor
+:experimental:
+:nofooter:
+:source-highlighter: pygments
+:sectnums:
+:stem: latexmath
+:toc:
+:xrefstyle: short
+== Componentes
+=== Pseudocódigo
+Ve al link:./serial.pseudo[serial.pseudo]
+
+=== Diseño struct
+Diseño UML para la estructura que representa la lámina
+
+image:./UML_Lamina.svg[]
+
+Diseño UML para la estructura que representa la memoria privada de cada hilo
+
+image:./UML.MemoriaPrivada.svg[]
+
+Diseño UML para la estructura que representa la memoria que comparten los hilos
+
+image:./UML.MemoriaCompartida.svg[]
